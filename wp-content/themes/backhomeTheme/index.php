@@ -55,35 +55,29 @@
 				<p class="contsct_else">Или используй <br/><a href="contacts.html">форму</a> обратной связи</p>
 			</aside>
 			<div class="event">
-				<iframe width="240" height="135" src="https://www.youtube.com/embed/OEhKI0L9sDg" frameborder="0" allowfullscreen></iframe>
-				<div class="description_event">
-					<p class="event_time">
-						<span><time datetime="2016-01-06">06.01.2016</time></span>
-					</p>
-					<p class="event_text">Очередной участник незаконных вооруженных формирований т.н. «ДНР»
-						воспользовался программой СБ Украины «Тебя ждут дома».
+				<?php $posts = get_posts ("category=3&orderby=date&numberposts=3"); ?>
+				<?php if ($posts) : ?>
+					<?php foreach ($posts as $post) : setup_postdata ($post); ?>
 
-						Уроженец Селидовского района Донецкой области в июне прошлого года присоединился к боевикам,
-						охранял место дислокации одной из группировок.
+						<div class="description_event">
+<!--							<p class="event_time">-->
+<!--								<span>--><?php //the_time();?><!--</span>-->
+<!--							</p>-->
+							<iframe width="240" height="135" src="https://www.youtube.com/embed/OEhKI0L9sDg" frameborder="0" allowfullscreen></iframe>
 
-						Впоследствии он осознал преступную сущность террористической организации
-					</p>
+<!--							<a href="--><?php //the_permalink() ?><!--" rel="bookmark">--><?php //the_title(); ?><!--</a>-->
+							<div class="event_text"><?php the_content();?></div>
 
-					<div>
-
-						<div class="test" id="div10">
-							«ДНР», отсутствие
-							перспектив для налаживания собственной жизни и решил отказаться от дальнейшей противоправной
-							деятельности и вернуться домой.
 						</div>
-						<a onclick="hidetxt('div10'); return false;" href="#" rel="nofollow">Подробнее / Скрыть</a>
-					</div>
+						<?php
+					endforeach;
+					wp_reset_postdata();
+					?>
+				<?php endif; ?>
 
-				</div>
-				<hr/>
-			</div>
 
-			<hr/>
+
+
 
 		</div>
 	</div>

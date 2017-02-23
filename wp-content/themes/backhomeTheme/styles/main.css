@@ -357,7 +357,7 @@ header {
     height:auto ;
     font-size: 0;
 }
-.event_text {
+.event_text  {
     display: inline-block;
     width: 400px;
     height: auto;
@@ -367,6 +367,7 @@ header {
     margin-left: 10px;
     color: #3f3f3f;
 }
+
 .event iframe {
     vertical-align: top;
     margin-top: 35px;
