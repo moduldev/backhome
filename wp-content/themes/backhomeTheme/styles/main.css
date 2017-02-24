@@ -3,11 +3,11 @@
     src: url('../fonts/ubuntu/Ubuntu-Medium.ttf');
     src: url('../fonts/ubuntu/Ubuntu-Italic.ttf');
 }
-@font-face {
-    font-family: PT Serif;
-    src: url('../fonts/PT%20Serif/PT_Serif-Web-Italic.ttf');
-    src: url('../fonts/PT%20Serif/PT_Serif-Web-Bold.ttf')
-}
+/*@font-face {*/
+    /*font-family: PT Serif;*/
+    /*src: url('../fonts/PT%20Serif/PT_Serif-Web-Italic.ttf');*/
+    /*src: url('../fonts/PT%20Serif/PT_Serif-Web-Bold.ttf')*/
+/*}*/
 body {
     background: url("../img/background.jpg");
 }
@@ -344,10 +344,8 @@ header {
 }
 .event_time {
     display: block;
-    margin-left: 300px;
     font-size: 13px;
     margin-bottom: 10px;
-    width: 120px;
     height: 15px;
     color: #949494;
 }
@@ -355,6 +353,7 @@ header {
     display: inline-block;
     margin: 15px 10px 15px 25px;
     height:auto ;
+    width:660px;
     font-size: 0;
 }
 .event_text  {
@@ -367,13 +366,19 @@ header {
     margin-left: 10px;
     color: #3f3f3f;
 }
-
+.thumbnail-img {
+    display: inline-block;
+}
+.thumbnail-img img {
+    width:100px;
+    height: auto;
+}
 .event iframe {
     vertical-align: top;
-    margin-top: 35px;
     margin-bottom: 10px;
 }
 .description_event {
+    width:100%;
     font-size: 16px;
     display: inline-block;
     margin-bottom: 7px;
@@ -502,12 +507,8 @@ margin-left: 337px;
 }
 .event a {
     display: inline-block;
-    border-radius: 3px;
     text-decoration: none;
-    color: white;
-    padding: 2px 4px 2px 4px;
-    background: #01a5ca;
-    margin: 15px 0 5px 250px;
+    color: black;
 
 }
 .event a:hover {

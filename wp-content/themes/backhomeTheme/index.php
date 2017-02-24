@@ -1,11 +1,11 @@
-<?php get_header();?>
+<?php get_header(); ?>
 
 	<div class="wrapper_middle">
 		<div class="slider_top">
-			<div><img src="<?php echo get_template_directory_uri();?>/img/peace.jpg" alt=""/></div>
+			<div><img src="<?php echo get_template_directory_uri(); ?>/img/peace.jpg" alt=""/></div>
 
-			<div><img src="<?php echo get_template_directory_uri();?>/img/road.jpg" alt=""/></div>
-			<div><img src="<?php echo get_template_directory_uri();?>/img/contact.jpg" alt=""/></div>
+			<div><img src="<?php echo get_template_directory_uri(); ?>/img/road.jpg" alt=""/></div>
+			<div><img src="<?php echo get_template_directory_uri(); ?>/img/contact.jpg" alt=""/></div>
 		</div>
 		<div class="text_right_part">
 			<p class="name_programm">Специальная программа</p>
@@ -41,42 +41,31 @@
 			Хватит воевать!!!</p>
 	</div>
 	<div class="wrapper_down">
-		<div class="last_event">
-			<p class="title_last_event"> Последние <span>события:</span></p>
+	<div class="last_event">
+		<p class="title_last_event"> Последние <span>события:</span></p>
 
-			<aside class="contacts">
-				<p class="title_contacts">Наши <span>контакты:</span></p>
+		<aside class="contacts">
+			<p class="title_contacts">Наши <span>контакты:</span></p>
 
-				<p class="contacts_phone"><span>телефон:</span> (050)579-32-19</p>
+			<p class="contacts_phone"><span>телефон:</span> (050)579-32-19</p>
 
-				<p class="contact_e-mail"><span>e-mail:</span><a href="mailto:vernuc.domoy@gmail.com">vernuc.domoy@gmail.com</a>
-				</p>
+			<p class="contact_e-mail"><span>e-mail:</span><a
+					href="mailto:vernuc.domoy@gmail.com">vernuc.domoy@gmail.com</a>
+			</p>
+			<p class="contsct_else">Или используй <br/><a href=""><span>форму</span></a> обратной связи</p>
+		</aside>
+		<div class="event">
 
-				<p class="contsct_else">Или используй <br/><a href="contacts.html">форму</a> обратной связи</p>
-			</aside>
-			<div class="event">
-				<?php $posts = get_posts ("category=3&orderby=date&numberposts=3"); ?>
-				<?php if ($posts) : ?>
-					<?php foreach ($posts as $post) : setup_postdata ($post); ?>
+			<?php $posts = get_posts( "category=3,5&orderby=date&numberposts=10" ); ?>
+			<?php if ( $posts ) : ?>
+				<?php foreach ( $posts as $post ) : setup_postdata( $post ); ?>
+					<?php get_template_part('content', get_post_format()) ;?>
 
-						<div class="description_event">
-<!--							<p class="event_time">-->
-<!--								<span>--><?php //the_time();?><!--</span>-->
-<!--							</p>-->
-							<iframe width="240" height="135" src="https://www.youtube.com/embed/OEhKI0L9sDg" frameborder="0" allowfullscreen></iframe>
-
-<!--							<a href="--><?php //the_permalink() ?><!--" rel="bookmark">--><?php //the_title(); ?><!--</a>-->
-							<div class="event_text"><?php the_content();?></div>
-
-						</div>
-						<?php
-					endforeach;
-					wp_reset_postdata();
-					?>
-				<?php endif; ?>
-
-
-
+					<?php
+				endforeach;
+				wp_reset_postdata();
+				?>
+			<?php endif; ?>
 
 
 		</div>

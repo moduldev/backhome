@@ -1,5 +1,9 @@
 <?php
-
+/*
+	 ====================================================
+		Include scripts
+	 ====================================================
+ */
 	function backhome_script_enqueue() {
 
 		wp_enqueue_style('custom_style', get_template_directory_uri() . '/styles/main.css', array(),'1.0.0', 'all');
@@ -11,6 +15,11 @@
 
 	}
 	add_action('wp_enqueue_scripts', 'backhome_script_enqueue') ;
+/*
+	 ====================================================
+		Activate CDN Jquery
+	 ====================================================
+ */
 	function shapeSpace_include_custom_jquery() {
 
 		wp_deregister_script('jquery');
@@ -18,6 +27,11 @@
 
 	}
 	add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
+/*
+	 ====================================================
+		Activate menu
+	 ====================================================
+ */
 
 	function backhome_theme_setup() {
 
@@ -28,7 +42,11 @@
 	}
 	add_action('init','backhome_theme_setup');
 
-
+/*
+	 ====================================================
+		Remove js scripts from page-4.php
+	 ====================================================
+ */
 function my_deregister_javascript () {
 	if ( is_page ('4') ) {
 		wp_deregister_script ( 'slickjs' );
@@ -36,3 +54,22 @@ function my_deregister_javascript () {
 	}
 }
 add_action ( 'wp_enqueue_scripts', 'my_deregister_javascript');
+/*
+	 ====================================================
+	    Activate custom background
+	 ====================================================
+ */
+add_theme_support('custom-background');
+/*
+	 ====================================================
+		Activate post thumbnails
+	 ====================================================
+ */
+add_theme_support('post-thumbnails');
+/*
+	 ====================================================
+		Activate post formats
+	 ====================================================
+ */
+
+add_theme_support('post-formats',array('aside','image','video'));
