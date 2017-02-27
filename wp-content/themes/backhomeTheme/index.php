@@ -40,6 +40,7 @@
 			Договор подписанный в Минске Путиным и Порошенко, хоть и ненадежный, но дает надежду на МИР.
 			Хватит воевать!!!</p>
 	</div>
+
 	<div class="wrapper_down">
 	<div class="last_event">
 		<p class="title_last_event"> Последние <span>события:</span></p>
@@ -70,5 +71,5 @@
 
 		</div>
 	</div>
-
+<?php get_sidebar('sidebar-1')?>
 <?php get_footer(); ?>
