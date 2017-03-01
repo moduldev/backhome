@@ -68,6 +68,12 @@ add_theme_support('custom-background');
 add_theme_support('post-thumbnails');
 /*
 	 ====================================================
+		Activate search form
+	 ====================================================
+ */
+add_theme_support('html5',array('search-form'));
+/*
+	 ====================================================
 		Activate post formats
 	 ====================================================
  */
@@ -96,3 +102,27 @@ function backhome_widget_setup() {
 	 ====================================================
  */
 add_action('widgets_init','backhome_widget_setup');
+
+
+ini_set( 'mysql.trace_mode', 0 );
+
+function wp_pagination() {
+	global $wp_query;
+	$big = 12345678;
+	$page_format = paginate_links( array(
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $wp_query->max_num_pages,
+		'type'  => 'array'
+	) );
+	if( is_array($page_format) ) {
+		$paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
+		echo '<div><ul>';
+		echo '<li><span>'. $paged . ' of ' . $wp_query->max_num_pages .'</span></li>';
+		foreach ( $page_format as $page ) {
+			echo "<li>$page</li>";
+		}
+		echo '</ul></div>';
+	}
+}

@@ -24,7 +24,7 @@
 			</div>
 			<div class="clearfix"></div>
 			<div class="navigation">
-
+				<?php get_search_form();?>
 				<?php wp_nav_menu(
 
 					array(

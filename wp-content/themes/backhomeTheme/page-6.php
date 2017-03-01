@@ -59,10 +59,11 @@
 
 			<?php
 			$currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1 ;
-			$arg = array('post_per_page'=>3,'paged'=>$currentPage,'category__in' =>array(5));
+			$arg = array('post_per_page'=>3,'paged'=>$currentPage);
 			$posts = query_posts( $arg);
 
-			if ( $posts ) : ?>
+			?>
+			<?php if ( $posts ) : ?>
 				<?php foreach ( $posts as $post ) : setup_postdata( $post ); ?>
 					<?php get_template_part('content', get_post_format()) ;?>
 
@@ -75,8 +76,6 @@
 					<?php previous_posts_link('Новые записи ');?>
 				</div>
 			<?php endif; wp_reset_query(); ?>
-
-
 
 
 
