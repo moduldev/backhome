@@ -746,3 +746,12 @@ margin-left: 337px;
     border: 1px solid #dddddd;
     border-left-width: 0;
 }
+.event .searchandfilter  {
+
+    background-color: red !important;
+
+}
+#ofcategory {
+    width: 150px !important;
+
+}
