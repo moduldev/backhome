@@ -748,10 +748,12 @@ margin-left: 337px;
 }
 .event .searchandfilter  {
 
-    background-color: red !important;
 
 }
-#ofcategory {
+#ofpost_tag {
     width: 150px !important;
 
+}
+.searchandfilter li {
+    font-size: 16px;
 }
