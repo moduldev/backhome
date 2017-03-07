@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 
-$heading = esc_html( apply_filters( 'woocommerce_product_description_heading', __( 'Product Description', 'woocommerce' ) ) );
+$heading = esc_html( apply_filters( 'woocommerce_product_description_heading', __( 'Описание', 'woocommerce' ) ) );
 
 ?>
 
@@ -31,3 +31,4 @@ $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', _
 <?php endif; ?>
 
 <?php the_content(); ?>
+<a href="http://backhome/somnevaeshsya/">asdasd</a>

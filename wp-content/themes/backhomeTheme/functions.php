@@ -116,3 +116,54 @@ function woocommerce_support() {
 }
 
 //add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+
+/*
+	 ====================================================
+		Changed name of tabs in product page woocommerce
+	 ====================================================
+ */
+function woocommerce_default_product_tabs( $tabs = array() ) {
+	global $product, $post;
+
+	// Description tab - shows product content
+	if ( $post->post_content ) {
+		$tabs['description'] = array(
+			'title'    => __( 'Описание', 'woocommerce' ),
+			'priority' => 10,
+			'callback' => 'woocommerce_product_description_tab'
+		);
+	}
+
+	// Additional information tab - shows attributes
+	if ( $product && ( $product->has_attributes() || ( $product->enable_dimensions_display() && ( $product->has_dimensions() || $product->has_weight() ) ) ) ) {
+		$tabs['additional_information'] = array(
+			'title'    => __( 'Additional Information', 'woocommerce' ),
+			'priority' => 20,
+			'callback' => 'woocommerce_product_additional_information_tab'
+		);
+	}
+
+	// Reviews tab - shows comments
+	if ( comments_open() ) {
+		$tabs['reviews'] = array(
+			'title'    => sprintf( __( 'Reviews (%d)', 'woocommerce' ), $product->get_review_count() ),
+			'priority' => 30,
+			'callback' => 'comments_template'
+		);
+	}
+
+	return $tabs;
+}
+
+
+function get_ecommerce_excerpt(){
+	$excerpt = get_the_excerpt();
+	$excerpt = preg_replace(" ([.*?])",'',$excerpt);
+	$excerpt = strip_shortcodes($excerpt);
+	$excerpt = strip_tags($excerpt);
+	$excerpt = substr($excerpt, 0, 200);
+	$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+	$excerpt = trim(preg_replace( '/s+/', ' ', $excerpt));
+	return $excerpt;
+}
