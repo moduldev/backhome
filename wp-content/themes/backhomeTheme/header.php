@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head <?php language_attributes();?>>
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="img/icon.png" type="image/png">
-	<title><?php bloginfo(); ?></title>
+	<title><?php bloginfo('name'); ?><?php wp_title('|');?></title>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class();?>>

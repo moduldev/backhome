@@ -43,60 +43,41 @@
 
 	<div class="wrapper_down">
 	<div class="last_event">
-		<p class="title_last_event"> Последние <span>события:</span></p>
+	<p class="title_last_event"> Последние <span>события:</span></p>
 
-		<aside class="contacts">
-			<p class="title_contacts">Наши <span>контакты:</span></p>
+	<aside class="contacts">
+		<p class="title_contacts">Наши <span>контакты:</span></p>
 
-			<p class="contacts_phone"><span>телефон:</span> (050)579-32-19</p>
+		<p class="contacts_phone"><span>телефон:</span> (050)579-32-19</p>
 
-			<p class="contact_e-mail"><span>e-mail:</span><a
-					href="mailto:vernuc.domoy@gmail.com">vernuc.domoy@gmail.com</a>
-			</p>
-			<p class="contsct_else">Или используй <br/><a href="<?php home_url('/');?>">форму</a> обратной связи</p>
-		</aside>
-		<div class="event">
-<!--			--><?php //echo do_shortcode('[searchandfilter add_search_param="1" fields="category,post_tag" types="select,checkbox" order_by="slug" all_items_labels="Выбирите ти операции,выберите вид недвижимости" headings=",Tags" hierarchical="1" hide_empty="0"]' ); ?>
-			<!--			--><?php
-			//			$currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1 ;
-			//			$arg = array('post_per_page'=>3,'paged'=>$currentPage);
-			//			$posts = query_posts( $arg);
-			//
-			//			if ( $posts ) : ?>
-			<!--				--><?php //foreach ( $posts as $post ) : setup_postdata( $post ); ?>
-			<!--					--><?php //get_template_part('content', get_post_format()) ;?>
-			<!---->
-			<!--				--><?php //endforeach; ?>
-			<!---->
-			<!--				<div class="pagination_container">-->
-			<!--					--><?php //next_posts_link(' Старые записи');?>
-			<!--				</div>-->
-			<!--				<div class="pagination_container">-->
-			<!--					--><?php //previous_posts_link('Новые записи ');?>
-			<!--				</div>-->
-			<!--			--><?php //endif; wp_reset_query(); ?>
+		<p class="contact_e-mail"><span>e-mail:</span><a
+				href="mailto:vernuc.domoy@gmail.com">vernuc.domoy@gmail.com</a>
+		</p>
+		<p class="contsct_else">Или используй <br/><a href="<?php home_url('/');?>">форму</a> обратной связи</p>
+	</aside>
+	<div class="event">
+		<!--			--><?php //echo do_shortcode('[searchandfilter add_search_param="1" fields="category,post_tag" types="select,checkbox" order_by="slug" all_items_labels="Выбирите ти операции,выберите вид недвижимости" headings=",Tags" hierarchical="1" hide_empty="0"]' ); ?>
+		<?php
+		$currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1 ;
+		$arg = array('post_per_page'=>3,'paged'=>$currentPage);
+		$posts = query_posts( $arg);
+
+		if ( $posts ) : ?>
+			<?php foreach ( $posts as $post ) : setup_postdata( $post ); ?>
+				<?php get_template_part('content', get_post_format()) ;?>
+
+			<?php endforeach; ?>
+
+			<div class="pagination_container">
+				<?php next_posts_link(' Старые записи');?>
+			</div>
+			<div class="pagination_container">
+				<?php previous_posts_link('Новые записи ');?>
+			</div>
+		<?php endif; wp_reset_query(); ?>
 
 
-		</div>
 
 	</div>
-<!--	<div>-->
-<!--		--><?php
-//
-//		$lastblog = new WP_Query('post_type=post&cat=3');
-//		if( $lastblog->have_posts()):
-//			while($lastblog->have_posts()): $lastblog->the_post(); ?>
-<!--				--><?php //get_template_part('content', get_post_format()) ;?>
-<!--			--><?php //endwhile; ?>
-<!--			<div class="pagination_container">-->
-<!--				--><?php //next_posts_link(' Старые записи');?>
-<!--			</div>-->
-<!--			<div class="pagination_container">-->
-<!--				--><?php //previous_posts_link('Новые записи ');?>
-<!--			</div>-->
-<!--		--><?php //endif; wp_reset_query(); ?>
-<!---->
-<!--	</div>-->
 <?php get_sidebar();?>
-
 <?php get_footer(); ?>

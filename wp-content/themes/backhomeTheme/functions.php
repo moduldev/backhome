@@ -91,8 +91,8 @@ function backhome_widget_setup() {
         'id' => 'sidebar-1',
         'class' => 'custom',
         'description' => 'Standart sidebar',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after-widget' => '</aside>',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after-widget' => '</div>',
         'before_title' => '<h1 class="widget-title">',
         'after_title' => '</h1>',
     ));
@@ -167,3 +167,12 @@ function get_ecommerce_excerpt(){
 	$excerpt = trim(preg_replace( '/s+/', ' ', $excerpt));
 	return $excerpt;
 }
+/*
+	 ====================================================
+		Changed name of tabs in product page woocommerce
+	 ====================================================
+ */
+function backhome_remove_version(){
+	return '';
+}
+add_filter('the_generator','backhome_remove_version');
