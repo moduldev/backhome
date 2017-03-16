@@ -30,7 +30,8 @@
 					array(
 						'container'  => '',
 						'menu_class' => 'menu',
-						'theme_location'  => 'primary'
+						'theme_location'  => 'primary',
+						'walker' => new Walker_Nav_Primary()
 
 					)
 

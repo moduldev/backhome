@@ -1,4 +1,6 @@
 <?php
+
+require get_template_directory() . '/inc/walker.php';
 /*
 	 ====================================================
 		Include scripts
@@ -91,10 +93,10 @@ function backhome_widget_setup() {
         'id' => 'sidebar-1',
         'class' => 'custom',
         'description' => 'Standart sidebar',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after-widget' => '</div>',
-        'before_title' => '<h1 class="widget-title">',
-        'after_title' => '</h1>',
+        'before_widget' => '<ul id="%1$s" class="widget %2$s">',
+        'after-widget' => '</ul>',
+        'before_title' => '<span class="widget-title">',
+        'after_title' => '</span>',
     ));
 }
 /*
